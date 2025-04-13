@@ -1,0 +1,11 @@
+import { Router } from "express";
+import userController from "../controller/userController.js";
+import auth from "./auth.js";
+const router = Router();
+router.route("/create-user").post(userController.createUser);
+router.route("/login-user").post(userController.loginUser);
+router.route("/get-user").get(auth,userController.userDetail);
+router.route("/get-all-user").get(auth,userController.allUser);
+router.route("/update-password").put(auth,userController.updateUser);
+router.route("/update-client").put(auth,userController.updateClient);
+export default router;
